@@ -5,4 +5,7 @@ spring:
 valentin:
   client:
     address:
-      url: http://localhost:8082/address
+      url: http://localhost:8082/addres
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/hexagonal
