@@ -1,4 +1,4 @@
-package com.mvvalentin.hexagonal.adapters.in.controller.Mapper;
+package com.mvvalentin.hexagonal.adapters.in.controller.mapper;
 
 import com.mvvalentin.hexagonal.adapters.in.controller.request.CustomerResquest;
 import com.mvvalentin.hexagonal.application.core.domain.Customer;
