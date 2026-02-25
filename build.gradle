@@ -34,9 +34,17 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign' // dependência Feign
 	implementation 'org.springframework.kafka:spring-kafka'
+	// 1. MapStruct
+    implementation 'org.mapstruct:mapstruct:1.5.2.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.2.Final'
+    // 2. Lombok (Necessário para que o MapStruct leia os Getters/Setters)
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
-	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.2.Final'
+	// 3. Binding entre Lombok e MapStruct
+	// Este plugin garante que o Lombok gere o código ANTES do MapStruct tentar mapear
+	annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.kafka:spring-kafka-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
