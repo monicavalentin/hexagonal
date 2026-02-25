@@ -1,13 +1,14 @@
 package com.mvvalentin.hexagonal.application.core.useCase;
 
 import com.mvvalentin.hexagonal.application.core.domain.Customer;
+import com.mvvalentin.hexagonal.application.ports.in.InsertCustomerInputPort;
 import com.mvvalentin.hexagonal.application.ports.out.FindAddressByZipCodeOutputPort;
 import com.mvvalentin.hexagonal.application.ports.out.InsertCustomerOutPutPort;
 
     //  Use Case responsável pela lógica de negócio de inserção de um novo cliente.Segue o princípio
     //  da inversão de dependência, comunicando-se com o mundo externo  através de interfaces (Output Ports).
 
-public class InsertCustomerUseCase {
+public class InsertCustomerUseCase implements InsertCustomerInputPort {
     // Portas de saída: O Use Case não sabe QUEM busca o endereço ou QUEM salva o cliente,
     // ele apenas sabe que existe um contrato para isso.
 
@@ -26,6 +27,7 @@ public class InsertCustomerUseCase {
      // de domínio (Customer) e solicita a persistência.* @param customer Objeto de domínio com os
     // dados básicos do cliente. * @param zipCode CEP para busca de endereço.
 
+    @Override
     public void insert(Customer customer, String zipCode){
         // 1. Busca as informações de endereço via integração externa (ex: API de Correios/ViaCEP)
         var andress = findAddressByZipCodeOutpitPort.find(zipCode);
