@@ -11,7 +11,7 @@ import javax.validation.constraints.NotBlank;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CustomerResquest {
+public class CustomerRequest {
     // Dados  recebidos nas requições
 
     @NotBlank
