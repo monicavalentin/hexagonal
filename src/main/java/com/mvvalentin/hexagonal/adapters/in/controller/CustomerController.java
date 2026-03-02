@@ -2,13 +2,12 @@ package com.mvvalentin.hexagonal.adapters.in.controller;
 
 import com.mvvalentin.hexagonal.adapters.in.controller.mapper.CustomerMapper;
 import com.mvvalentin.hexagonal.adapters.in.controller.request.CustomerRequest;
+import com.mvvalentin.hexagonal.adapters.in.controller.response.CustomerResponse;
+import com.mvvalentin.hexagonal.application.ports.in.FindCustomerByIdInputPort;
 import com.mvvalentin.hexagonal.application.ports.in.InsertCustomerInputPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -20,6 +19,9 @@ public class CustomerController {
     private InsertCustomerInputPort insertCustomerInputPort;
 
     @Autowired
+    FindCustomerByIdInputPort findCustomerByIdInputPort;
+
+    @Autowired
     private CustomerMapper customerMapper;
 
     @PostMapping
@@ -29,4 +31,13 @@ public class CustomerController {
         return ResponseEntity.ok().build();
 
     }
+    @GetMapping
+    public ResponseEntity<CustomerResponse> findById(@PathVariable final String id){
+        var customer = findCustomerByIdInputPort.find(id);
+        var  customerResponse = customerMapper.toCustomerResponse(customer);
+        return ResponseEntity.ok().body(customerResponse);
+
+
+    }
+
 }
