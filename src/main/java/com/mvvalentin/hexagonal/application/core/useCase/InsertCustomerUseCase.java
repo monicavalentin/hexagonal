@@ -1,25 +1,23 @@
 package com.mvvalentin.hexagonal.application.core.useCase;
 
 import com.mvvalentin.hexagonal.application.core.domain.Customer;
-import com.mvvalentin.hexagonal.application.ports.in.InsertCustomerInPutPort;
-import com.mvvalentin.hexagonal.application.ports.out.FindAddressByZipCodeOutPutPort;
-import com.mvvalentin.hexagonal.application.ports.out.InsertCustomerOutPutPort;
-import org.springframework.stereotype.Service;
+import com.mvvalentin.hexagonal.application.ports.in.InsertCustomerInputPort;
+import com.mvvalentin.hexagonal.application.ports.out.FindAddressByZipCodeOutputPort;
+import com.mvvalentin.hexagonal.application.ports.out.InsertCustomerOutputPort;
 
 //  Use Case responsável pela lógica de negócio de inserção de um novo cliente.Segue o princípio
     //  da inversão de dependência, comunicando-se com o mundo externo  através de interfaces (Output Ports).
-@Service
-public class InsertCustomerUseCase implements InsertCustomerInPutPort  {
+public class InsertCustomerUseCase implements InsertCustomerInputPort {
     // Portas de saída: O Use Case não sabe QUEM busca o endereço ou QUEM salva o cliente,
     // ele apenas sabe que existe um contrato para isso.
 
-    private final FindAddressByZipCodeOutPutPort findAddressByZipCodeOutPutPort;
-    private final InsertCustomerOutPutPort insertCustomerOutPutPort;
+    private final FindAddressByZipCodeOutputPort findAddressByZipCodeOutPutPort;
+    private final InsertCustomerOutputPort insertCustomerOutPutPort;
 
       //Construtor para injeção de dependências.
 
-    public InsertCustomerUseCase(FindAddressByZipCodeOutPutPort findAddressByZipCodeOutputPort,
-                                 InsertCustomerOutPutPort insertCustomerOutPutPort) {
+    public InsertCustomerUseCase(FindAddressByZipCodeOutputPort findAddressByZipCodeOutputPort,
+                                 InsertCustomerOutputPort insertCustomerOutPutPort) {
         this.findAddressByZipCodeOutPutPort = findAddressByZipCodeOutputPort;
         this.insertCustomerOutPutPort = insertCustomerOutPutPort;
     }

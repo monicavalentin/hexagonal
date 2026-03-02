@@ -3,12 +3,12 @@ package com.mvvalentin.hexagonal.adapters.out;
 import com.mvvalentin.hexagonal.adapters.out.client.FindAddressByZipCodeClient;
 import com.mvvalentin.hexagonal.adapters.out.client.mapper.AddressResponseMapper;
 import com.mvvalentin.hexagonal.application.core.domain.Address;
-import com.mvvalentin.hexagonal.application.ports.out.FindAddressByZipCodeOutPutPort;
+import com.mvvalentin.hexagonal.application.ports.out.FindAddressByZipCodeOutputPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class FindAddressByZipCodeAdapter implements FindAddressByZipCodeOutPutPort {
+public class FindAddressByZipCodeAdapter implements FindAddressByZipCodeOutputPort {
 
     // injetar o Client
     @Autowired

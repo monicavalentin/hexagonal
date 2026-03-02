@@ -2,7 +2,7 @@ package com.mvvalentin.hexagonal.application.ports.in;
 
 import com.mvvalentin.hexagonal.application.core.domain.Customer;
 
-public interface InsertCustomerInPutPort {
+public interface InsertCustomerInputPort {
 
     void insert(Customer customer, String zipCode);
 }

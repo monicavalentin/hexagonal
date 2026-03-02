@@ -2,7 +2,7 @@ package com.mvvalentin.hexagonal.adapters.in.controller;
 
 import com.mvvalentin.hexagonal.adapters.in.controller.mapper.CustomerMapper;
 import com.mvvalentin.hexagonal.adapters.in.controller.request.CustomerRequest;
-import com.mvvalentin.hexagonal.application.ports.in.InsertCustomerInPutPort;
+import com.mvvalentin.hexagonal.application.ports.in.InsertCustomerInputPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +17,7 @@ import javax.validation.Valid;
 public class CustomerController {
 
     @Autowired
-    private InsertCustomerInPutPort insertCustomerInputPort;
+    private InsertCustomerInputPort insertCustomerInputPort;
 
     @Autowired
     private CustomerMapper customerMapper;

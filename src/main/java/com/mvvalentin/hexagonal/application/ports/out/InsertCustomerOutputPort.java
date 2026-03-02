@@ -6,7 +6,7 @@ import com.mvvalentin.hexagonal.application.core.domain.Customer;
     // (seja em SQL, NoSQL ou via API),  * permitindo que a lógica de aplicação não dependa de tecnologias
     // de banco de dados.
 
-public interface InsertCustomerOutPutPort {
+public interface InsertCustomerOutputPort {
     // Método responsável por enviar o objeto de domínio para ser persistido. * * @param customer O
     // objeto cliente já com os dados validados e enriquecidos.
 
