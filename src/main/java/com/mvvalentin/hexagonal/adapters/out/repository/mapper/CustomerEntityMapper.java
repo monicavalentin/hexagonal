@@ -6,6 +6,10 @@ import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring" )
 public interface CustomerEntityMapper {
+
     // converte de  Customer para CustomerEntity
     CustomerEntity toCustomerEntity(Customer customer);
+
+    // converte CustomerEntity para Customer
+    Customer toCustomer(CustomerEntity customerEntity);
 }
