@@ -6,18 +6,18 @@ public class Customer {
     private String name;
     private Address address;
     private String cpf;
-    private Boolean validCpf;
+    private Boolean isValidCpf;
 
     public Customer() {
-        this.validCpf = false;
+        this.isValidCpf = false;
     }
 
-    public Customer(String id, String name, Address andress, String cpf, Boolean validCpf) {
+    public Customer(String id, String name, Address andress, String cpf, Boolean isValidCpf) {
         this.id = id;
         this.name = name;
         this.address = andress;
         this.cpf = cpf;
-        this.validCpf = validCpf;
+        this.isValidCpf = isValidCpf;
     }
 
     public String getId() {
@@ -52,11 +52,11 @@ public class Customer {
         this.cpf = cpf;
     }
 
-    public Boolean getValidCpf() {
-        return validCpf;
+    public Boolean getIsValidCpf() {
+        return isValidCpf;
     }
 
-    public void setValidCpf(Boolean validCpf) {
-        this.validCpf = validCpf;
+    public void setIsValidCpf(Boolean isValidCpf) {
+        this.isValidCpf = isValidCpf;
     }
 }
