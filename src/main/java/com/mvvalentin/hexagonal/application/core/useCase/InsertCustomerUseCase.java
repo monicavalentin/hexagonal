@@ -11,15 +11,15 @@ public class InsertCustomerUseCase implements InsertCustomerInputPort {
     // Portas de saída: O Use Case não sabe QUEM busca o endereço ou QUEM salva o cliente,
     // ele apenas sabe que existe um contrato para isso.
 
-    private final FindAddressByZipCodeOutputPort findAddressByZipCodeOutPutPort;
-    private final InsertCustomerOutputPort insertCustomerOutPutPort;
+    private final FindAddressByZipCodeOutputPort findAddressByZipCodeOutputPort;
+    private final InsertCustomerOutputPort insertCustomerOutputPort;
 
       //Construtor para injeção de dependências.
 
     public InsertCustomerUseCase(FindAddressByZipCodeOutputPort findAddressByZipCodeOutputPort,
-                                 InsertCustomerOutputPort insertCustomerOutPutPort) {
-        this.findAddressByZipCodeOutPutPort = findAddressByZipCodeOutputPort;
-        this.insertCustomerOutPutPort = insertCustomerOutPutPort;
+                                 InsertCustomerOutputPort insertCustomerOutputPort) {
+        this.findAddressByZipCodeOutputPort = findAddressByZipCodeOutputPort;
+        this.insertCustomerOutputPort = insertCustomerOutputPort;
     }
 
     // Orquestra o fluxo de inserção: busca o endereço pelo CEP, enriquece o objeto
@@ -29,10 +29,10 @@ public class InsertCustomerUseCase implements InsertCustomerInputPort {
     @Override
     public void insert(Customer customer, String zipCode){
         // 1. Busca as informações de endereço via integração externa (ex: API de Correios/ViaCEP)
-        var andress = findAddressByZipCodeOutPutPort.find(zipCode);
+        var andress = findAddressByZipCodeOutputPort.find(zipCode);
         // 2. Associa o endereço retornado ao objeto cliente
         customer.setAddress(andress);
         // 3. Persiste o cliente no banco de dados através do adaptador de saída correspondente
-        insertCustomerOutPutPort.insert(customer);
+        insertCustomerOutputPort.insert(customer);
     }
 }
