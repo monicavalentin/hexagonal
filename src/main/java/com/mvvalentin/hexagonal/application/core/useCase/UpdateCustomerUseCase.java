@@ -25,8 +25,5 @@ public class UpdateCustomerUseCase implements UpdateCustomerInputPort {
         var address = findAddressByZipCodeOutputPort.find(zipCode);
         customer.setAddress(address);
         updateCustomerOutputPort.update(customer);
-
-
-
     }
 }
