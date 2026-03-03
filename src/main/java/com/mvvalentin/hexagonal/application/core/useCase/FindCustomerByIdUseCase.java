@@ -3,14 +3,12 @@ package com.mvvalentin.hexagonal.application.core.useCase;
 import com.mvvalentin.hexagonal.application.core.domain.Customer;
 import com.mvvalentin.hexagonal.application.ports.in.FindCustomerByIdInputPort;
 import com.mvvalentin.hexagonal.application.ports.out.FindCustomerByIdOutputPort;
-import org.springframework.stereotype.Component;
 
-@Component
-public class FindCustomerById implements FindCustomerByIdInputPort {
+public class FindCustomerByIdUseCase implements FindCustomerByIdInputPort {
     // injeção ports
     private final FindCustomerByIdOutputPort findCustomerByIdOutputPort;
     // construtor
-    public FindCustomerById(FindCustomerByIdOutputPort findCustomerByIdOutputPort) {
+    public FindCustomerByIdUseCase(FindCustomerByIdOutputPort findCustomerByIdOutputPort) {
         this.findCustomerByIdOutputPort = findCustomerByIdOutputPort;
     }
     @Override

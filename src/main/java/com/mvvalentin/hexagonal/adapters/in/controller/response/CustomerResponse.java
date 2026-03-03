@@ -10,6 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CustomerResponse {
+
     private String name;
     private Address address;
     private String cpf;
