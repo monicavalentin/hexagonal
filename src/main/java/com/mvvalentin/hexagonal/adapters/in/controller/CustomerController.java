@@ -3,8 +3,10 @@ package com.mvvalentin.hexagonal.adapters.in.controller;
 import com.mvvalentin.hexagonal.adapters.in.controller.mapper.CustomerMapper;
 import com.mvvalentin.hexagonal.adapters.in.controller.request.CustomerRequest;
 import com.mvvalentin.hexagonal.adapters.in.controller.response.CustomerResponse;
+import com.mvvalentin.hexagonal.application.core.domain.Customer;
 import com.mvvalentin.hexagonal.application.ports.in.FindCustomerByIdInputPort;
 import com.mvvalentin.hexagonal.application.ports.in.InsertCustomerInputPort;
+import com.mvvalentin.hexagonal.application.ports.in.UpdateCustomerInputPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +21,10 @@ public class CustomerController {
     private InsertCustomerInputPort insertCustomerInputPort;
 
     @Autowired
-    FindCustomerByIdInputPort findCustomerByIdInputPort;
+    private FindCustomerByIdInputPort findCustomerByIdInputPort;
+
+    @Autowired
+    private UpdateCustomerInputPort updateCustomerInputPort;
 
     @Autowired
     private CustomerMapper customerMapper;
@@ -37,6 +42,15 @@ public class CustomerController {
         var  customerResponse = customerMapper.toCustomerResponse(customer);
         return ResponseEntity.ok().body(customerResponse);
 
+    }
+
+    @PutMapping
+    public ResponseEntity<Void> update(@PathVariable final String id,
+                                       @Valid @RequestBody CustomerRequest customerResquest){
+        Customer customer = customerMapper.toCustomer(customerResquest);
+        customer.setId(id);
+        updateCustomerInputPort.update(customer,customerResquest.getZipCode());
+        return ResponseEntity.noContent().build();
 
     }
 
