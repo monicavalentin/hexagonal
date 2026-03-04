@@ -4,6 +4,7 @@ import com.mvvalentin.hexagonal.application.core.domain.Customer;
 import com.mvvalentin.hexagonal.application.ports.in.InsertCustomerInputPort;
 import com.mvvalentin.hexagonal.application.ports.out.FindAddressByZipCodeOutputPort;
 import com.mvvalentin.hexagonal.application.ports.out.InsertCustomerOutputPort;
+import com.mvvalentin.hexagonal.application.ports.out.SendCpfForValidationOutputPort;
 
 //  Use Case responsável pela lógica de negócio de inserção de um novo cliente.Segue o princípio
     //  da inversão de dependência, comunicando-se com o mundo externo  através de interfaces (Output Ports).
@@ -13,13 +14,16 @@ public class InsertCustomerUseCase implements InsertCustomerInputPort {
 
     private final FindAddressByZipCodeOutputPort findAddressByZipCodeOutputPort;
     private final InsertCustomerOutputPort insertCustomerOutputPort;
+    private final SendCpfForValidationOutputPort sendCpfForValidationOutputPort;
 
       //Construtor para injeção de dependências.
 
     public InsertCustomerUseCase(FindAddressByZipCodeOutputPort findAddressByZipCodeOutputPort,
-                                 InsertCustomerOutputPort insertCustomerOutputPort) {
+                                 InsertCustomerOutputPort insertCustomerOutputPort,
+                                 SendCpfForValidationOutputPort sendCpfForValidationOutputPort) {
         this.findAddressByZipCodeOutputPort = findAddressByZipCodeOutputPort;
         this.insertCustomerOutputPort = insertCustomerOutputPort;
+        this.sendCpfForValidationOutputPort = sendCpfForValidationOutputPort;
     }
 
     // Orquestra o fluxo de inserção: busca o endereço pelo CEP, enriquece o objeto
