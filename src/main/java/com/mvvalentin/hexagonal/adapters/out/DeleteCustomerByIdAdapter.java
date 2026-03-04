@@ -5,7 +5,7 @@ import com.mvvalentin.hexagonal.application.ports.out.DeleteCustomerByIdOutputPo
 import org.springframework.stereotype.Component;
 
 @Component
-public class DeleteCustomerByIdAdapters implements DeleteCustomerByIdOutputPort {
+public class DeleteCustomerByIdAdapter implements DeleteCustomerByIdOutputPort {
 
     private CustomerRepository customerRepository;
 
