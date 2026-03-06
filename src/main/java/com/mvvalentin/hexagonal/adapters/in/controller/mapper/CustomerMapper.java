@@ -14,6 +14,8 @@ public interface CustomerMapper {
     @Mapping(target = "id", ignore = true) // utilizado para ignorar campos da classe Customer
     @Mapping(target = "address", ignore = true)
     @Mapping(target = "isValidCpf", ignore = true)
+    @Mapping(target = "name", source = "name")
+    @Mapping(target = "cpf", source = "cpf")
     Customer toCustomer(CustomerRequest customerResquest);
 
     // converte de Customer para CustomerResponse
