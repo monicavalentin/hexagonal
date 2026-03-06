@@ -33,9 +33,9 @@ public class InsertCustomerUseCase implements InsertCustomerInputPort {
     @Override
     public void insert(Customer customer, String zipCode){
         // 1. Busca as informações de endereço via integração externa (ex: API de Correios/ViaCEP)
-        var andress = findAddressByZipCodeOutputPort.find(zipCode);
+        var address = findAddressByZipCodeOutputPort.find(zipCode);
         // 2. Associa o endereço retornado ao objeto cliente
-        customer.setAddress(andress);
+        customer.setAddress(address);
         // 3. Persiste o cliente no banco de dados através do adaptador de saída correspondente
         insertCustomerOutputPort.insert(customer);
     }
