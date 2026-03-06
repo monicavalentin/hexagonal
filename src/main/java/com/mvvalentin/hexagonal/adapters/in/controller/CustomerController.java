@@ -40,7 +40,7 @@ public class CustomerController {
         return ResponseEntity.ok().build();
 
     }
-    @GetMapping
+    @GetMapping("/{id}")
     public ResponseEntity<CustomerResponse> findById(@PathVariable final String id){
         var customer = findCustomerByIdInputPort.find(id);
         var  customerResponse = customerMapper.toCustomerResponse(customer);
@@ -48,7 +48,7 @@ public class CustomerController {
 
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity<Void> update(@PathVariable final String id,
                                        @Valid @RequestBody CustomerRequest customerResquest){
         Customer customer = customerMapper.toCustomer(customerResquest);
