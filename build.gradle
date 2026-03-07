@@ -1,7 +1,8 @@
 plugins {
+	id 'org.springframework.boot' version '2.7.4'
+	id 'io.spring.dependency-management' version '1.0.14.RELEASE'
 	id 'java'
-	id 'org.springframework.boot' version '2.7.5'
-	id 'io.spring.dependency-management' version '1.1.7'
+
 }
 
 group = 'com.mvvalentin'
@@ -32,7 +33,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign' // dependência Feign
+	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign' // feing
 	implementation 'org.springframework.kafka:spring-kafka'
 	// 1. MapStruct
     implementation 'org.mapstruct:mapstruct:1.5.2.Final'
@@ -48,6 +49,9 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.kafka:spring-kafka-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	// dependência ArchUnit teste de arquitetura
+	testImplementation 'com.tngtech.archunit:archunit-junit5:1.2.1'
+
 }
 
 dependencyManagement {
@@ -55,7 +59,6 @@ dependencyManagement {
 		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
 	}
 }
-
 
 
 tasks.named('test') {
