@@ -1,7 +1,7 @@
 package com.mvvalentin.hexagonal.config;
 
 import com.mvvalentin.hexagonal.adapters.out.FindCustomerByIdAdapter;
-import com.mvvalentin.hexagonal.application.core.useCase.FindCustomerByIdUseCase;
+import com.mvvalentin.hexagonal.application.core.usecase.FindCustomerByIdUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

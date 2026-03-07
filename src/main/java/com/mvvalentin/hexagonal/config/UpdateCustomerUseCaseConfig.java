@@ -2,8 +2,8 @@ package com.mvvalentin.hexagonal.config;
 
 import com.mvvalentin.hexagonal.adapters.out.FindAddressByZipCodeAdapter;
 import com.mvvalentin.hexagonal.adapters.out.UpdateCustomerAdapter;
-import com.mvvalentin.hexagonal.application.core.useCase.FindCustomerByIdUseCase;
-import com.mvvalentin.hexagonal.application.core.useCase.UpdateCustomerUseCase;
+import com.mvvalentin.hexagonal.application.core.usecase.FindCustomerByIdUseCase;
+import com.mvvalentin.hexagonal.application.core.usecase.UpdateCustomerUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
