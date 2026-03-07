@@ -1,4 +1,4 @@
-package com.mvvalentin.hexagonal.application.core.useCase;
+package com.mvvalentin.hexagonal.application.core.usecase;
 
 import com.mvvalentin.hexagonal.application.ports.in.DeleteCustomerByIdInputPort;
 import com.mvvalentin.hexagonal.application.ports.in.FindCustomerByIdInputPort;
