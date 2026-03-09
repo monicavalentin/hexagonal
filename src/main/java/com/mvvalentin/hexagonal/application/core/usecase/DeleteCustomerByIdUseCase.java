@@ -18,7 +18,7 @@ public class DeleteCustomerByIdUseCase implements DeleteCustomerByIdInputPort {
         this.deleteCustomerByIdOutputPort = deleteCustomerByIdOutputPort;
     }
     @Override
-    public void delete(final String id){
+    public void delete(String id){
         findCustomerByIdInputPort.find(id); // buscar um cliente para verificar se ele existe, se não existir cai na exceção do usecase
         deleteCustomerByIdOutputPort.delete(id);
 
